@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>VAULT Metadata Schema</title>
+    <link rel="stylesheet" href="css/bootstrap-combined.min.css">
+    <link rel="stylesheet" href="css/tree.css">
+</head>
+<body>
+    <div class="container" style="margin-top: .5em;"><a href="#" class="js-expand-all btn btn-default">Expand All</a>&nbsp;&nbsp;<a href="#" class="js-collapse-all btn btn-default">Collapse All</a></div>
+    <div class="tree">
+        <ul>
+            <li>
+                <span>mods</span>
+                <a href="http://www.loc.gov/standards/mods/mods-outline-3-4.html" target="_blank">Library of Congress Outline</a>
+                <ul>
+                    <li>
+                        <span>titleInfo</span>
+                        <ul>
+                            <li>
+                                <span>title</span>
+                            </li>
+                            <li>
+                                <span>subTitle</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>name</span>
+                    </li>
+                    <li>
+                        <span>typeOfResource</span>
+                    </li>
+                    <li>
+                        <span>genre</span>
+                    </li>
+                    <li>
+                        <span>originInfo</span>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span>local</span>
+                <ul>
+                    <li>
+                        <span>courseWorkWrapper</span>
+                        <ul>
+                            <li><span>courseWorkType</span>
+                            <b>always one of</b>
+                                <ul>
+                                    <li>Course work</li>
+                                    <li>Program Portfolio document</li>
+                                    <li>Senior thesis project</li>
+                                    <li>Junior Review</li>
+                                    <li>Workshop / Events</li>
+                                    <li>Specials projects</li>
+                                    <li><b class="alert">is this true?</b></li>
+                                </ul>
+                            </li>
+                            <li><span>courseWorkTypeSpecific</span></li>
+                            <li><span>imageType</span></li>
+                            <li><span>workType</span></li>
+                            <li>
+                                <span>groupProject</span>
+                                <b>must be either</b> <code>group project</code> or <code>individual project</code>
+                            </li>
+                            <li><span>groupProjectNumber</span></li>
+                            <li><span>groupConstituents</span></li>
+                            <li><span>groupMembers</span></li>
+                            <li><span>groupContribution</span></li>
+                            <li><span>material</span></li>
+                            <li><span>materials_freetext</span></li>
+                            <li><span>process</span></li>
+                            <li><span>assignmentTitle</span></li>
+                            <li><span>assignmentDescription</span></li>
+                            <li><span>assignmentDue</span></li>
+                            <li><span>assignmentDue_freetext</span></li>
+                            <li><span>assignmentLength</span></li>
+                            <li><span>assignmentLength_freetext</span></li>
+                            <li><span>assignmentReferences</span></li>
+                            <li><span>file</span></li>
+                            <li><span>fileA</span></li>
+                            <li><span>fileB</span></li>
+                            <li><span>projectTitle</span></li>
+                            <li><span>exerciseTitle</span></li>
+                            <li><span>submissionType</span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>juniorReviewWrapper</span>
+                    </li>
+                    <li>
+                        <span>courseInfo</span>
+                        <ul>
+                            <li>
+                                <span>department</span>
+                                five-letter all-caps dept code, e.g. "PHOTO"
+                            </li>
+                            <li>
+                                <span>semester</span>
+                                season + year e.g. "Fall 2014"
+                            </li>
+                            <li>
+                                <span>course</span>
+                                course title, e.g. "Material Assemblage"
+                            </li>
+                            <li>
+                                <span>faculty</span>
+                                comma-separated list of faculty, e.g. "Jane Janane, Bob Bobob"
+                            </li>
+                            <li>
+                                <span>facultyID</span>
+                                comma-separated list of faculty usernames, e.g. "jjanane, bbobob" note: not all programs record this, comes from course list taxos
+                            </li>
+                            <li>
+                                <span>section</span>
+                                specific section number e.g. "MARCH-555-01"
+                            </li>
+                            <li>
+                                <span>firstYearDimension</span>
+                            </li>
+                            <li>
+                                <span>courseinfo</span>
+                                full taxo string from course list e.g. "Spring 2015\MARCH\Material Assemblage\Jane Janane\MARCH-555-01" these are the pieces that, split out, populate its siblings
+                            </li>
+                            <li>
+                                <span>courseCategory</span>
+                            </li>
+                            <li>
+                                <span>specialPrograms</span>
+                            </li>
+                            <li>
+                                <span>courseName</span>
+                                dept &amp; course codes e.g. "MARCH-555"
+                            </li>
+                            <li>
+                                <span>courseLevel</span>
+                            </li>
+                            <li>
+                                <span>XList</span>
+                                ID number of cross-listed course
+                            </li>
+                            <li>
+                                <span>secondXList</span>
+                                ID number of <i>another</i> cross-listed course
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>division</span>
+                        e.g. "Fine Arts Division", "Design Division"
+                    </li>
+                    <li>
+                        <span>department</span>
+                        friendly department name, e.g. "Animation"
+                    </li>
+                    <li>
+                        <span>assessmentWrapper</span>
+                        data pulled from Assessment &amp; Accreditation taxonomy
+                        <ul>
+                            <li>
+                                <span>useInReview</span>
+                                <strong>must be <code>yes</code> or <code>no</code></strong>
+                            </li>
+                            <li>
+                                <span>type</span>
+                                e.g. "External Review"
+                            </li>
+                            <li>
+                                <span>program</span>
+                                friendly name, e.g. "Photography"
+                            </li>
+                            <li>
+                                <span>date</span>
+                                generally a semester, "Fall 2014"
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>seniorPacketWrapper</span>
+                        <ul>
+                            <li><span>title</span></li>
+                            <li><span>file</span></li>
+                            <li><span>hiResFile</span></li>
+                            <li><span>lowResFile</span></li>
+                            <li><span>fileTypeA</span></li>
+                            <li><span>fileTypeB</span></li>
+                            <li><span>fileTypeC</span></li>
+                            <li><span>semester</span></li>
+                            <li><span>date</span></li>
+                            <li><span>formatBroad</span></li>
+                            <li><span>formatSpecific</span></li>
+                            <li><span>formatOther</span></li>
+                            <li><span>heightINCH</span></li>
+                            <li><span>widthINCH</span></li>
+                            <li><span>depthINCH</span></li>
+                            <li><span>duration</span></li>
+                            <li><span>technique</span></li>
+                            <li><span>techniqueOther</span></li>
+                            <li><span>notes</span></li>
+                            <li><span>tags</span></li>
+                            <li><span>phase</span></li>
+                            <li><span>artistName</span></li>
+                            <li><span>viewLevel</span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>viewLevel</span>
+                        <b>only valid values</b> are
+                        <ul>
+                            <li>"for internal <i>X</i> division use only" (where X = CCA division)</li>
+                            <li>"shared with other academic programs for assessment &amp; accreditation purposes only"</li>
+                            <li>"shared with college depts. and academic programs"</li>
+                            <li>"shared with college depts., academic programs, and students"</li>
+                            <li>"public"</li>
+                        </ul>
+                    </li>
+                    <li><span>exhibitWrapper</span> for Senior Shows, Events, etc.
+                            <ul>
+                                <li><span>type</span></li>
+                                <li><span>gallery</span> <b>always uses <code>CCA Galleries</code> taxonomy</b> but with optional "other" choice</li>
+                                <li><span>date</span> often a date range that show ran</li>
+                                <li><span>title</span></li>
+                                <li><span>note</span> often used as a gallery=other storage space</li>
+                                <li><span>showcardFile</span> attachment</li>
+                                <li><span>installationShotFile</span> attachment</li>
+                                <li><span>sponsor</span></li>
+                                <li><span>semester</span> <b>uses <code>Semesters</code> taxonomy</b></li>
+                            </ul>
+                        </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap-tree.js"></script>
+    <script src="js/copyXP.js"></script>
+    <script src="js/expand-collapse.js"></script>
+</body>
+</html>
