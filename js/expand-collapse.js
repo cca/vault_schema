@@ -1,16 +1,16 @@
-$('.js-expand-all').click(expandAll);
-$('.js-collapse-all').click(collapseAll);
+$('.js-expand-all').click(expandAll)
+$('.js-collapse-all').click(collapseAll)
 
 function expandAll (ev) {
-    console.log('expanded');
+    console.log('expanded')
     $('.parent_li').each(function (parent) {
-        $(this).find('> ul > li').show('fast');
+        $(this).find('> ul > li').show('fast')
     })
 }
 
 function collapseAll (ev) {
-    console.log('collapsed');
+    console.log('collapsed')
     $('.parent_li').each(function (parent) {
-        $(this).find('> ul > li').hide('fast');
+        $(this).find('> ul > li').hide('fast')
     })
 }
