@@ -28,6 +28,49 @@
                     </li>
                     <li>
                         <span>name</span>
+                        <ul>
+                            <li class="attr"><span>@authority</span></li>
+                            <li class="attr"><span>@usage</span></li>
+                            <li class="attr"><span>@type</span></li>
+                            <li><span>namePart</span> takes two different forms
+                                <ul>
+                                    <li><i>Surname, Givenname</i> for students</li>
+                                    <li><i>Givenname Surname</i> for faculty</li>
+                                </ul>
+                            </li>
+                            <li><span>namePartDate</span></li>
+                            <li><span>role</span>
+                                <ul>
+                                    <li><span>roleTerm</span>
+                                        <ul>
+                                            <li class="attr"><span>@type</span></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><span>subNameWrapper</span>
+                                <ul>
+                                    <li><span>ccaAffiliated</span>
+                                        <strong>must be <code>yes</code> or <code>no</code></strong>
+                                    </li>
+                                    <li><span>affiliation</span></li>
+                                    <li><span>constituent</span>
+                                        e.g. Alumni, Faculty, Staff, Student
+                                    </li>
+                                    <li><span>major</span>
+                                        always from the Majors taxonomy
+                                    </li>
+                                    <li><span>department</span></li>
+                                    <li><span>gradDate</span>
+                                        always from the Semesters taxonomy
+                                    </li>
+                                    <li><span>description</span></li>
+                                    <li><span>username</span></li>
+                                    <li><span>staging</span></li>
+                                    <li><span>email</span></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <span>typeOfResource</span>
@@ -206,8 +249,7 @@
                         </ul>
                     </li>
                     <li>
-                        <span>viewLevel</span>
-                        <b>only valid values</b> are
+                        <span>viewLevel</span> <b>only valid values</b> are
                         <ul>
                             <li>"for internal <i>X</i> division use only" (where X = CCA division)</li>
                             <li>"shared with other academic programs for assessment &amp; accreditation purposes only"</li>
@@ -217,18 +259,18 @@
                         </ul>
                     </li>
                     <li><span>exhibitWrapper</span> for Senior Shows, Events, etc.
-                            <ul>
-                                <li><span>type</span></li>
-                                <li><span>gallery</span> <b>always uses <code>CCA Galleries</code> taxonomy</b> but with optional "other" choice</li>
-                                <li><span>date</span> often a date range that show ran</li>
-                                <li><span>title</span></li>
-                                <li><span>note</span> often used as a gallery=other storage space</li>
-                                <li><span>showcardFile</span> attachment</li>
-                                <li><span>installationShotFile</span> attachment</li>
-                                <li><span>sponsor</span></li>
-                                <li><span>semester</span> <b>uses <code>Semesters</code> taxonomy</b></li>
-                            </ul>
-                        </li>
+                        <ul>
+                            <li><span>type</span></li>
+                            <li><span>gallery</span> <b>always uses <code>CCA Galleries</code> taxonomy</b> but with optional "other" choice</li>
+                            <li><span>date</span> often a date range that show ran</li>
+                            <li><span>title</span></li>
+                            <li><span>note</span> often used as a gallery=other storage space</li>
+                            <li><span>showcardFile</span> attachment</li>
+                            <li><span>installationShotFile</span> attachment</li>
+                            <li><span>sponsor</span></li>
+                            <li><span>semester</span> <b>uses <code>Semesters</code> taxonomy</b></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
         </ul>
