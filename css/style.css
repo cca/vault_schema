@@ -2,3 +2,7 @@
     color: darkgreen;
     font-style: italic;
 }
+
+[title] {
+    cursor: help;
+}
