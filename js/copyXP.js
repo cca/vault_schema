@@ -1,8 +1,4 @@
 $('.tree li span').append('<a class="xp" title="get XPath for this node"><sup>xp</sup></a>')
-$('.xp').css({
-    'margin-left': '1em',
-    'cursor': 'pointer'
-})
 $('.xp').on('click', copyXP)
 
 function getXP (el) {

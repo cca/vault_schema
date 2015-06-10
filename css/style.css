@@ -11,6 +11,11 @@
     margin-top: .5em;
 }
 
+.xp {
+    margin-left: 1em;
+    cursor: pointer;
+}
+
 .non-standard span {
     border: 2px dotted maroon !important;
     background: rgba(255, 106, 106, 0.2);
