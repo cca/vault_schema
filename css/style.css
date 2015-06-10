@@ -1,4 +1,4 @@
-.attr {
+.attr span {
     color: darkgreen;
     font-style: italic;
 }
@@ -9,4 +9,18 @@
 
 .top-btns {
     margin-top: .5em;
+}
+
+.non-standard span {
+    border: 2px dotted maroon !important;
+    background: rgba(255, 106, 106, 0.2);
+}
+
+.legend li {
+    list-style-type: none;
+    margin-bottom: 1em;
+}
+
+.legend {
+    margin-bottom: 2em;
 }

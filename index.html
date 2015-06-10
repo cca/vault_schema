@@ -7,21 +7,29 @@
     <link rel="stylesheet" href="css/tree.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <div class="container top-btns">
+<body class="container-fluid">
+    <div class="top-btns">
         <a href="#" class="js-expand-all btn btn-default">Expand All</a>&nbsp;&nbsp;<a href="#" class="js-collapse-all btn btn-default">Collapse All</a>
     </div>
-    <div class="tree">
+
+    <div class="row-fluid">
+    <div class="tree span6">
         <ul>
             <li>
                 <span>mods</span>
-                <a href="http://www.loc.gov/standards/mods/mods-outline-3-4.html" target="_blank">Library of Congress Outline</a>
+                <a href="http://www.loc.gov/standards/mods/mods-outline-3-4.html" target="_blank">Library of Congress Outline</a> <i class="text-error">Q: but which version, 3.3?</i>
                 <ul>
                     <li>
                         <span>titleInfo</span>
                         <ul>
+                            <li class="attr"><span>@usage</span></li>
+                            <li class="attr"><span>@supplied</span></li>
+                            <li class="attr"><span>@type</span></li>
                             <li>
-                                <span>title</span>
+                                <span>title</span> <strong>required in every collection</strong> <ul>
+                                    <li>often scripted, combination of other metadata fields (<i class="text-error">TODO: link to example script</i>)</li>
+                                    <li>only consistently used field under titleInfo</li>
+                                </ul>
                             </li>
                             <li>
                                 <span>subTitle</span>
@@ -31,7 +39,7 @@
                     <li>
                         <span>name</span>
                         <ul>
-                            <li class="attr"><span>@authority</span></li>
+                            <li class="attr"><span>@authority</span> (<i class="text-error">TODO: link to MODS controlled values</i>)</li>
                             <li class="attr"><span>@usage</span></li>
                             <li class="attr"><span>@type</span></li>
                             <li><span>namePart</span> takes two different forms
@@ -40,8 +48,8 @@
                                     <li><i>Givenname Surname</i> for faculty</li>
                                 </ul>
                             </li>
-                            <li><span>namePartDate</span></li>
-                            <li><span>role</span>
+                            <li><span>namePartDate</span> adhere to MODS</li>
+                            <li><span>role</span> used in Archives to denote a photographer, etc. linked to AAT
                                 <ul>
                                     <li><span>roleTerm</span>
                                         <ul>
@@ -50,49 +58,194 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><span>subNameWrapper</span>
+                            <li class="non-standard"><span>subNameWrapper</span> all CCA-specific fields, needed for EQUELLA repeaters
                                 <ul>
-                                    <li><span>ccaAffiliated</span>
-                                        <strong>must be <code>yes</code> or <code>no</code></strong>
+                                    <li>
+                                        <span>ccaAffiliated</span>
+                                        must be <code>Yes</code> or <code>No</code>, sentence case
                                     </li>
-                                    <li><span>affiliation</span></li>
-                                    <li><span>constituent</span>
-                                        e.g. Alumni, Faculty, Staff, Student
+                                    <li>
+                                        <span>affiliation</span> technically should be a level higher at mods/namePart
+                                        <ul>
+                                            <li>in student work is the CCA ID number</li>
+                                            <li>in Libraries collection, it's the acronym of the college at the time</li>
+                                            <li><i class="text-error">TODO: what other types of values?</i></li>
+                                            <li><i class="text-error">TODO: are other collections using student ID using this field?</i></li>
+                                        </ul>
                                     </li>
-                                    <li><span>major</span>
+                                    <li>
+                                        <span>constituent</span> possible values are
+                                        <ul>
+                                            <li><code>Alumnus</code></li>
+                                            <li><code>Faculty</code></li>
+                                            <li><code>Graduate student</code></li>
+                                            <li><code>Staff</code></li>
+                                            <li><code>Administrator</code></li>
+                                            <li><code>Undergraduate student</code></li>
+                                            <li class="text-error"><i>NOT</i> "Student" which is actually used in some places, should be converted</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span>major</span>
                                         always from the Majors taxonomy
                                     </li>
-                                    <li><span>department</span></li>
-                                    <li><span>gradDate</span>
+                                    <li>
+                                        <span>department</span> comes from CCA Departments & Programs taxonomy
+                                    </li>
+                                    <li>
+                                        <span>gradDate</span>
                                         always from the Semesters taxonomy
                                     </li>
-                                    <li><span>description</span></li>
-                                    <li><span>username</span></li>
-                                    <li><span>staging</span></li>
-                                    <li><span>email</span></li>
+                                    <li><span>description</span>
+                                        free text, technically should be a level higher at mods/namePart
+                                    </li>
+                                    <li>
+                                        <span>username</span> = CCA username
+                                    </li>
+                                    <li>
+                                        <span>staging</span> previously used in CORE Waiver Portfolio, used in License Agreement to store phone
+                                    </li>
+                                    <li>
+                                        <span>email</span>
+                                    </li>
+                                    <li>
+                                        <span>phone</span> <i class="text-error">TODO: add to schema</i>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <span>physicalDescription</span>
+                        <span>typeOfResourceWrapper</span>
                         <ul>
-                            <li><span>formBroad</span></li>
-                            <li><span>formSpecific</span></li>
-                            <li><span>internetMediaType</span></li>
-                            <li><span>extent</span></li>
-                            <li><span>extentType</span></li>
-                            <li><span>digitalOrigin</span></li>
+                            <li>
+                                <span>typeOfResource</span> see MODS for <a href="http://www.loc.gov/standards/mods/mods-outline-3-4.html#typeOfResource">enumerated values</a>
+                                <ul>
+                                    <li><span class="attr">@collection</span> only value is <code>yes</code></li>
+                                    <li><span class="attr">@manuscript</span> only value is <code>yes</code></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <li>
-                        <span>typeOfResource</span>
-                    </li>
-                    <li>
-                        <span>genre</span>
+                        <span>genreWrapper</span>
+                        <ul>
+                            <li>
+                                <span>genre</span> department-defined list in most student work collections, free text in Libraries (but we use 3 different authorities)
+                                <ul>
+                                    <li>
+                                        <span class="attr">type</span> only value used is <code>style</code> in Libraries collection</li>
+                                    <li>
+                                        <span class="attr">authority</span> for Libraries, possible values: <i class="text-error">TODO: link up the first two</i>
+                                        <ul>
+                                            <li><code>AAT</code></li>
+                                            <li><code>LCSH</code></li>
+                                            <li><code>Local</code></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <span>originInfo</span>
+                        <ul>
+                            <li><span>place</span> MODS has children which we don't use. We use for city of publication in Libraries.</li>
+                            <li><span>publisher</span></li>
+                            <li><span>edition</span></li>
+                        </ul>
+                    </li>
+                    <li class="non-standard">
+                        <span>origininfo</span>
+                        <ul>
+                            <li>
+                                <span>dateType</span> made up for Libraries collection, values in MODS case:
+                                <ul>
+                                    <li><code>dateCreated</code></li>
+                                    <li><code>dateCaptured</code></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>dateCreatedWrapper</span>
+                                <ul>
+                                    <li id="mods-dateCreatedWrapper-dateCreated">
+                                        <span>dateCreated</span> in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a>, <code>YYYY-MM-DD</code> format
+                                        <ul>
+                                            <li>
+                                                <span class="attr">@qualifier</span> either <code>approximate</code> or <code>questionable</code>
+                                            </li>
+                                            <li><span class="attr">@keyDate</span> only value is <code>yes</code>, <strong>only one keyDate per record</strong></li>
+                                            <li><span class="attr">@encoding</span> = <code>w3cdtf</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span>pointStart</span> this & below are for date ranges, not used in dateCaptured
+                                    </li>
+                                    <li>
+                                        <span>pointEnd</span>
+                                    </li>
+                                    <li>
+                                        <span>staging</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>dateCaptured</span> <code>YYYY-MM-DD</code> again
+                                <ul>
+                                    <li>
+                                        <span class="attr">@encoding</span> not used
+                                    </li>
+                                    <li>
+                                        <span class="attr">@qualifier</span>
+                                        either <code>approximate</code> or <code>questionable</code>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="non-standard">dateOtherWrapper</span> see <a href="#mods-dateCreatedWrapper-dateCreated">dateCreated</a> sub-elements
+                                <ul>
+                                    <li><span>type</span></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>semesterCreated</span> linked to Semesters taxonomy, great overlap with <a href="#local-courseInfo-semester">local/courseInfo/semester</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>language</span> value is <code>eng</code> (set in Expert Scripting)
+                        <ul>
+                            <li><span class="attr">@authority</span> value is <code>iso-639-2b</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>physicalDescription</span> MODS only has single <code>&lt;form&gt;</code> child
+                        <ul>
+                            <li>
+                                <span class="non-standard">formBroad</span> uses AAT vocab, used across the board
+                            </li>
+                            <li>
+                                <span class="non-standard">formSpecific</span> uses AAT vocab, only in Libraries
+                            </li>
+                            <li>
+                                <span>internetMediaType</span> MIME types, only used in Libraries <i class="text-error">TODO: link up IANA standard</i>, can calculate by script
+                            </li>
+                            <li>
+                                <span>extent</span> see <a href="https://docs.google.com/document/d/1LpxtKNOYc7qZSJxRu8KJSJ6C_qi-DxP3dsankdmOxoA/edit">Extent Terminology</a> document, parallels MARC 300 in RDA
+                            </li>
+                            <li>
+                                <span>extentType</span>
+                            </li>
+                            <li>
+                                <span>digitalOrigin</span> <a href="http://www.loc.gov/standards/mods/mods-outline-3-4.html#physicalDescription">MODS values</a> are
+                                <ul>
+                                    <li><code>born digital</code></li>
+                                    <li><code>reformatted digital</code></li>
+                                    <li><code>digitized microfilm</code></li>
+                                    <li><code>digitized other analog</code></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </li>
@@ -105,14 +258,14 @@
                             <li><span>courseWorkType</span>
                             <b>always one of</b>
                                 <ul>
-                                    <li>Assignment</li>
-                                    <li>Course work</li>
-                                    <li>Junior Review</li>
-                                    <li>Program Portfolio document</li>
-                                    <li class="text-error" title="we should combine this with senior packet below">Senior thesis project</li>
-                                    <li>Senior packet</li>
-                                    <li>Special projects</li>
-                                    <li>Workshop / Events</li>
+                                    <li><code>Assignment</code></li>
+                                    <li><code>Course work</code></li>
+                                    <li><code>Junior Review</code></li>
+                                    <li><code>Program Portfolio document</code></li>
+                                    <li title="we should combine this with senior packet below"><code class="alert-error">Senior thesis project</code></li>
+                                    <li><code>Senior packet</code></li>
+                                    <li><code>Special projects</code></li>
+                                    <li><code>Workshop / Events</code></li>
                                 </ul>
                             </li>
                             <li><span>courseWorkTypeSpecific</span></li>
@@ -120,7 +273,11 @@
                             <li><span>workType</span></li>
                             <li>
                                 <span>groupProject</span>
-                                <b>must be either</b> <code>group project</code> or <code>individual project</code>
+                                values are
+                                <ul>
+                                    <li><code>group project</code></li>
+                                    <li><code>individual project</code></li>
+                                </ul>
                             </li>
                             <li><span>groupProjectNumber</span></li>
                             <li><span>groupConstituents</span></li>
@@ -152,34 +309,40 @@
                         <ul>
                             <li>
                                 <span>department</span>
-                                five-letter all-caps dept code, e.g. "PHOTO"
+                                five-letter all-caps dept code, e.g. <code>PHOTO</code>
                             </li>
-                            <li>
+                            <li id="local-courseInfo-semester">
                                 <span>semester</span>
-                                season + year e.g. "Fall 2014"
+                                season + year, e.g. <code>Fall 2014</code>
                             </li>
                             <li>
                                 <span>course</span>
-                                course title, e.g. "Material Assemblage"
+                                course title, e.g. <code>Material Assemblage</code>
                             </li>
                             <li>
                                 <span>faculty</span>
-                                comma-separated list of faculty, e.g. "Jane Janane, Bob Bobob"
+                                comma-separated list of faculty, e.g. <code>Jane Janane, Bob Bobob</code>
                             </li>
                             <li>
                                 <span>facultyID</span>
-                                comma-separated list of faculty usernames, e.g. "jjanane, bbobob" note: not all programs record this, comes from course list taxos
+                                comma-separated list of faculty usernames, e.g. <code>jjanane, bbobob</code> note: not all programs record this, comes from course list taxos
                             </li>
                             <li>
                                 <span>section</span>
-                                specific section number e.g. "MARCH-555-01"
+                                specific section number e.g. <code>MARCH-555-01</code>
                             </li>
                             <li>
-                                <span>firstYearDimension</span>
+                                <span>firstYearDimension</span> only used in First Year Program collections, values are two-character abbreviations:
+                                <ul>
+                                    <li><code>D1</code></li>
+                                    <li><code>2D</code></li>
+                                    <li><code>3D</code></li>
+                                    <li><code>4D</code></li>
+                                </ul>
                             </li>
                             <li>
                                 <span>courseinfo</span>
-                                full taxo string from course list e.g. "Spring 2015\MARCH\Material Assemblage\Jane Janane\MARCH-555-01" these are the pieces that, split out, populate its siblings
+                                full path from a course list taxonomy e.g. <code>Spring 2015\MARCH\Material Assemblage\Jane Janane\MARCH-555-01</code> these are the pieces that, split out, populate its siblings
                             </li>
                             <li>
                                 <span>courseCategory</span>
@@ -189,7 +352,7 @@
                             </li>
                             <li>
                                 <span>courseName</span>
-                                dept &amp; course codes e.g. "MARCH-555"
+                                dept &amp; course codes e.g. <code>MARCH-555</code>
                             </li>
                             <li>
                                 <span>courseLevel</span>
@@ -205,32 +368,42 @@
                         </ul>
                     </li>
                     <li>
-                        <span>division</span>
-                        e.g. "Fine Arts Division", "Design Division"
+                        <span>division</span> CCA divisions are:
+                        <ul>
+                            <li><code>Architecture Division</code></li>
+                            <li><code>Design Division</code></li>
+                            <li><code>Fine Arts Division</code></li>
+                            <li><code>First Year Program</code></li>
+                            <li><code>Humanities &amp; Sciences Division</code></li>
+                            <li><code>Interdisciplinary Studies</code></li>
+                        </ul>
                     </li>
                     <li>
                         <span>department</span>
-                        friendly department name, e.g. "Animation"
+                        friendly department name, e.g. <code>Animation</code>
                     </li>
                     <li>
                         <span>assessmentWrapper</span>
                         data pulled from Assessment &amp; Accreditation taxonomy
                         <ul>
                             <li>
-                                <span>useInReview</span>
-                                <strong>must be <code>yes</code> or <code>no</code></strong>
+                                <span>useInReview</span> values are:
+                                <ul>
+                                    <li><code>yes</code></li>
+                                    <li><code>no</code></li>
+                                </ul>
                             </li>
                             <li>
                                 <span>type</span>
-                                e.g. "External Review"
+                                e.g. <code>External Review</code>
                             </li>
                             <li>
                                 <span>program</span>
-                                friendly name, e.g. "Photography"
+                                friendly name, e.g. <code>Photography</code>
                             </li>
                             <li>
                                 <span>date</span>
-                                generally a semester, "Fall 2014"
+                                generally a semester, e.g. <code>Fall 2014</code>
                             </li>
                         </ul>
                     </li>
@@ -263,32 +436,50 @@
                         </ul>
                     </li>
                     <li>
-                        <span>viewLevel</span> <b>only valid values</b> are
+                        <span>viewLevel</span> values are
                         <ul>
-                            <li>"for internal <i>X</i> division use only" (where X = CCA division)</li>
-                            <li>"shared with other academic programs for assessment &amp; accreditation purposes only"</li>
-                            <li>"shared with college depts. and academic programs"</li>
-                            <li>"shared with college depts., academic programs, and students"</li>
-                            <li>"public"</li>
+                            <li><code>for internal <i>X</i> division use only</code> (where X = CCA division)</li>
+                            <li><code>shared with other academic programs for assessment &amp; accreditation purposes only</code></li>
+                            <li><code>shared with college depts. and academic programs</code></li>
+                            <li><code>shared with college depts., academic programs, and students</code></li>
+                            <li><code>public"</code></li>
                         </ul>
                     </li>
                     <li><span>exhibitWrapper</span> for Senior Shows, Events, etc.
                         <ul>
                             <li><span>type</span></li>
-                            <li><span>gallery</span> <b>always uses <code>CCA Galleries</code> taxonomy</b> but with optional "other" choice</li>
+                            <li><span>gallery</span> uses CCA Galleries taxonomy but with optional "other" choice</li>
                             <li><span>date</span> often a date range that show ran</li>
                             <li><span>title</span></li>
                             <li><span>note</span> often used as a gallery=other storage space</li>
                             <li><span>showcardFile</span> attachment</li>
                             <li><span>installationShotFile</span> attachment</li>
                             <li><span>sponsor</span></li>
-                            <li><span>semester</span> <b>uses <code>Semesters</code> taxonomy</b></li>
+                            <li><span>semester</span> uses Semesters taxonomy</li>
                         </ul>
                     </li>
                 </ul>
             </li>
         </ul>
     </div>
+
+    <div class="general-rules span5 offset1">
+        <h2>Legend</h2>
+        <ul class="legend">
+            <li class="attr"><span>@attribute</span></li>
+            <li><code>value</code></li>
+            <li><small><a href="#">copy xpath expression</a></small></li>
+            <li class="non-standard"><span>&nbsp;doesn't adhere to MODS&nbsp;</span></li>
+        </ul>
+        <h2>General Rules</h2>
+        <ul>
+            <li>we <i>always</i> use "text" as the data Type in the Metadata Schema</li>
+            <li>if something has "wrapper" in the name, it's there to work with EQUELLA's repeaters and should <i>never</i> house a value (be the target of a non-repeater Wizard control)</li>
+            <li>"staging" fields are for housing taxonomy data which is later split out into other elements, never <b>indexed for Power Search</b> or <b>searchable by free text</b></li>
+            <li>camelCase elements generally adhere to MODS, all-lowercase dp not</li>
+        </ul>
+    </div>
+    </div> <!-- /row -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap-tree.js"></script>
