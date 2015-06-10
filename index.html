@@ -316,8 +316,172 @@
                             <li class="attr"><span>@authority</span></li>
                         </ul>
                     </li>
+                    <li>
+                        <span>relatedItem</span>
+                        <ul>
+                            <li class="attr"><span>@type</span></li>
+                            <li><span>title</span></li>
+                            <li><span>location</span></li>
+                            <li><span>note</span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>relateditem</span>
+                        <ul>
+                            <li class="attr"><span>@type</span></li>
+                            <li><span>title</span></li>
+                            <li><span>location</span></li>
+                            <li><span>note</span></li>
+                            <li>
+                                <span>originInfo</span>
+                                <ul>
+                                    <li>
+                                        <span>dateType</span>
+                                    </li>
+                                    <li>
+                                        <span>dateCreatedWrapper</span>
+                                        <ul>
+                                            <li>
+                                                <span>dateCreated</span>
+                                                <ul>
+                                                    <li class="attr"><span>@encoding</span></li>
+                                                    <li class="attr"><span>@qualifier</span></li>
+                                                </ul>
+                                            </li>
+                                            <li><span>pointStart</span></li>
+                                            <li><span>pointEnd</span></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span>dateOtherWrapper</span>
+                                        <ul>
+                                            <li>
+                                                <span>dateOther</span>
+                                                <ul>
+                                                    <li class="attr"><span>@type</span></li>
+                                                    <li class="attr"><span>@encoding</span></li>
+                                                    <li class="attr"><span>@qualifier</span></li>
+                                                </ul>
+                                            </li>
+                                            <li><span>pointStart</span></li>
+                                            <li><span>pointEnd</span></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>identifier</span> filled in with item's UUID in Expert Scripting
+                        <ul>
+                            <li class="attr"><span>@type</span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>location</span>
+                        <ul>
+                            <li>
+                                <span>physicalLocation</span>
+                                <ul>
+                                    <li class="attr"><span>@type</span></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>url</span>
+                            </li>
+                            <li>
+                                <span>copyInformation</span>
+                                <ul>
+                                    <li><span>form</span></li>
+                                    <li><span>sublocation</span></li>
+                                    <li><span>sublocationDetail</span></li>
+                                    <li><span>shelfLocator</span></li>
+                                    <li><span>electronicLocator</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>accessCondition</span>
+                        <ul>
+                            <li class="attr"><span>@type</span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>part</span>
+                        <ul>
+                            <li class="attr"><span>@type</span></li>
+                            <li><span>detail</span></li>
+                            <li><span>number</span></li>
+                            <li><span>numberB</span></li>
+                            <li><span>numberC</span></li>
+                            <li><span>numberD</span></li>
+                            <li><span>title</span></li>
+                            <li><span>extent</span></li>
+                            <li><span>date</span></li>
+                            <li><span>text</span></li>
+                            <li>
+                                <span>wrapperOther</span>
+                                <ul>
+                                    <li><span>tags</span></li>
+                                    <li><span>flaggedFor</span></li>
+                                    <li><span>assignNumber</span></li>
+                                    <li><span>exerciseNumber</span></li>
+                                    <li><span>format</span></li>
+                                    <li><span>formatSpecific</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>extension</span>
+                        <ul>
+                            <li><span>tags</span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>recordInfo</span>
+                        <ul>
+                            <li>
+                                <span>recordContentSource</span>
+                                <ul>
+                                    <li class="attr"><span>@authority</span></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>recordCreationDate</span>
+                                <ul>
+                                    <li class="attr"><span>@encoding</span></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>recordChangeDate</span>
+                            </li>
+                            <li>
+                                <span>recordIdentifier</span>
+                            </li>
+                            <li>
+                                <span>recordOrigin</span>
+                            </li>
+                            <li>
+                                <span>languageOfCataloging</span>
+                                <ul>
+                                    <li>
+                                        <span>languageTerm</span>
+                                        <ul>
+                                            <li class="attr"><span>@authority</span></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>descriptionStandard</span>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
-            </li>
+            </li> <!-- /mods -->
+
             <li>
                 <span>local</span>
                 <ul>
@@ -535,7 +699,7 @@
     <div class="general-rules span5 offset1">
         <h2>Legend</h2>
         <ul class="legend">
-            <li class="attr"><span>@attribute</span></li>
+            <li class="attr"><span>@@attribute</span></li>
             <li><code>value</code></li>
             <li><small><a href="#">copy xpath expression</a></small></li>
             <li class="non-standard"><span>&nbsp;doesn't adhere to MODS&nbsp;</span></li>
