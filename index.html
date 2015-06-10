@@ -134,12 +134,12 @@
                                 <span>genre</span> department-defined list in most student work collections, free text in Libraries (but we use 3 different authorities)
                                 <ul>
                                     <li>
-                                        <span class="attr">type</span> only value used is <code>style</code> in Libraries collection</li>
+                                        <span class="attr">@type</span> only value used is <code>style</code> in Libraries collection</li>
                                     <li>
-                                        <span class="attr">authority</span> for Libraries, possible values: <i class="text-error">TODO: link up the first two</i>
+                                        <span class="attr">@authority</span> for Libraries, possible values:
                                         <ul>
-                                            <li><code>AAT</code></li>
-                                            <li><code>LCSH</code></li>
+                                            <li><code><a href="https://www.getty.edu/vow/AATSearchPage.jsp">AAT</a></code></li>
+                                            <li><code><a href="http://authorities.loc.gov/">LCSH</a></code></li>
                                             <li><code>Local</code></li>
                                         </ul>
                                     </li>
@@ -175,7 +175,7 @@
                                                 <span class="attr">@qualifier</span> either <code>approximate</code> or <code>questionable</code>
                                             </li>
                                             <li><span class="attr">@keyDate</span> only value is <code>yes</code>, <strong>only one keyDate per record</strong></li>
-                                            <li><span class="attr">@encoding</span> = <code>w3cdtf</code></li>
+                                            <li><span class="attr">@encoding</span> = <code>w3cdtf</code> (<a href="http://www.w3.org/TR/NOTE-datetime">see standard</a>)</li>
                                         </ul>
                                     </li>
                                     <li>
@@ -228,7 +228,7 @@
                                 <span class="non-standard">formSpecific</span> uses AAT vocab, only in Libraries
                             </li>
                             <li>
-                                <span>internetMediaType</span> MIME types, only used in Libraries <i class="text-error">TODO: link up IANA standard</i>, can calculate by script
+                                <span>internetMediaType</span> <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">MIME types</a>, only used in Libraries, can calculate by script
                             </li>
                             <li>
                                 <span>extent</span> see <a href="https://docs.google.com/document/d/1LpxtKNOYc7qZSJxRu8KJSJ6C_qi-DxP3dsankdmOxoA/edit">Extent Terminology</a> document, parallels MARC 300 in RDA
