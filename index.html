@@ -121,8 +121,8 @@
                             <li>
                                 <span>typeOfResource</span> see MODS for <a href="http://www.loc.gov/standards/mods/mods-outline-3-4.html#typeOfResource">enumerated values</a>
                                 <ul>
-                                    <li class="attr"><span>@collection</span> only value is <code>yes</code></li>
-                                    <li class="attr"><span>@manuscript</span> only value is <code>yes</code></li>
+                                    <li class="attr"><span>@collection</span> = <code>yes</code></li>
+                                    <li class="attr"><span>@manuscript</span> = <code>yes</code></li>
                                 </ul>
                             </li>
                         </ul>
@@ -174,7 +174,7 @@
                                             <li>
                                                 <span class="attr">@qualifier</span> either <code>approximate</code> or <code>questionable</code>
                                             </li>
-                                            <li><span class="attr">@keyDate</span> only value is <code>yes</code>, <strong>only one keyDate per record</strong></li>
+                                            <li><span class="attr">@keyDate</span> = <code>yes</code>, <strong>only one keyDate per record</strong></li>
                                             <li><span class="attr">@encoding</span> = <code>w3cdtf</code> (<a href="http://www.w3.org/TR/NOTE-datetime">see standard</a>)</li>
                                         </ul>
                                     </li>
@@ -213,10 +213,10 @@
                         </ul>
                     </li>
                     <li>
-                        <span>language</span> value is <code>eng</code> (set in Expert Scripting)
+                        <span>language</span> = <code>eng</code> (set in Expert Scripting)
                         <ul>
                             <li>
-                                <span class="attr">@authority</span> value is <code>iso-639-2b</code>
+                                <span class="attr">@authority</span> = <code>iso-639-2b</code>
                             </li>
                         </ul>
                     </li>
@@ -356,29 +356,45 @@
                     <li class="non-standard">
                         <span>artstorClassification</span> list box in Libraries collection
                         <ul>
-                            <li class="attr"><span>@authority</span> value is <code>artstor</code>, set in expert scripting</li>
+                            <li class="attr"><span>@authority</span> = <code>artstor</code>, set in expert scripting</li>
                         </ul>
                     </li>
                     <li class="non-standard">
                         <span>photoClassification</span> list box in CCA\C Archives subset of Libraries
                         <ul>
-                            <li class="attr"><span>@authority</span> value is <code>local</code></li>
+                            <li class="attr"><span>@authority</span> = <code>local</code></li>
                         </ul>
                     </li>
                     <li>
-                        <span>relatedItem</span>
+                        <span>relatedItem</span> under MODS, any MODS element can be a sub-element of relatedItem. Used in Librares for major collection series (Hamaguchi, CCA/C Archives).
                         <ul>
-                            <li class="attr"><span>@type</span></li>
-                            <li><span>title</span></li>
-                            <li><span>location</span></li>
-                            <li><span>note</span></li>
+                            <li class="attr">
+                                <span>@type</span> = <code>host</code>
+                            </li>
+                            <li><span>title</span> see mods/titleInfo/title</li>
+                            <li>
+                                <span>location</span> URL of related item
+                            </li>
+                            <li><span>note</span> see mods/noteWrapper/note</li>
                         </ul>
                     </li>
                     <li class="non-standard">
-                        <span>relateditem</span>
+                        <span>relateditem</span> can link to any item
                         <ul>
-                            <li class="attr"><span>@type</span></li>
-                            <li><span>title</span></li>
+                            <li class="attr">
+                                <span>@type</span>
+                                <ul>
+                                    <li><code>preceding</code></li>
+                                    <li><code>succeeding</code></li>
+                                    <li><code>original</code></li>
+                                    <li><code>constituent</code></li>
+                                    <li><code>series</code></li>
+                                    <li><code>otherVersion</code></li>
+                                    <li><code>otherFormat</code></li>
+                                    <li><code>isReferencedBy</code></li>
+                                </ul>
+                            </li>
+                            <li><span>title</span> same as relatedItem above</li>
                             <li><span>location</span></li>
                             <li><span>note</span></li>
                             <li>
@@ -421,7 +437,7 @@
                         </ul>
                     </li>
                     <li>
-                        <span>identifier</span> filled in with item's UUID in Expert Scripting
+                        <span>identifier</span> not used (<i class="text-error">TODO: confirm</i>)
                         <ul>
                             <li class="attr"><span>@type</span></li>
                         </ul>
@@ -430,20 +446,20 @@
                         <span>location</span>
                         <ul>
                             <li>
-                                <span>physicalLocation</span>
+                                <span>physicalLocation</span> used only in Libraries, values are <code>Oakland Campus</code>, <code>San Francisco Campus</code>, etc.
                                 <ul>
-                                    <li class="attr"><span>@type</span></li>
+                                    <li class="attr"><span>@type</span> not used</li>
                                 </ul>
                             </li>
                             <li>
                                 <span>url</span>
                             </li>
                             <li>
-                                <span>copyInformation</span>
+                                <span>copyInformation</span> MODS parent &lt;holdingSimple&gt; node removed
                                 <ul>
                                     <li><span>form</span></li>
-                                    <li><span>sublocation</span></li>
-                                    <li><span>sublocationDetail</span></li>
+                                    <li><span>sublocation</span> pulled from Communications list of buildings, places</li>
+                                    <li><span>sublocationDetail</span> room within building, e.g. <code>Archives</code>, <code>Director's Office</code></li>
                                     <li><span>shelfLocator</span></li>
                                     <li><span>electronicLocator</span></li>
                                 </ul>
@@ -451,26 +467,30 @@
                         </ul>
                     </li>
                     <li>
-                        <span>accessCondition</span>
+                        <span>accessCondition</span> = <code>For rights relating to this resource, please contact {{insert CCA department}}.</code>
                         <ul>
-                            <li class="attr"><span>@type</span></li>
+                            <li class="attr">
+                                <span>@type</span> = <code>use and reproduction</code>
+                            </li>
                         </ul>
                     </li>
                     <li>
-                        <span>part</span>
+                        <span>part</span> file UUIDs
                         <ul>
-                            <li class="attr"><span>@type</span></li>
-                            <li><span>detail</span></li>
-                            <li><span>number</span></li>
-                            <li><span>numberB</span></li>
-                            <li><span>numberC</span></li>
-                            <li><span>numberD</span></li>
-                            <li><span>title</span></li>
-                            <li><span>extent</span></li>
+                            <li class="attr">
+                                <span>@type</span>
+                            </li>
+                            <li><span>detail</span> number &amp; title should be children of detail</li>
+                            <li class="non-standard"><span>number</span> should be default target for attachments</li>
+                            <li class="non-standard"><span>numberB</span> extra "number" elements are for circumstances (e.g. repeaters with multiple attachments) where the single element is too limiting</li>
+                            <li class="non-standard"><span>numberC</span></li>
+                            <li class="non-standard"><span>numberD</span></li>
+                            <li class="non-standard"><span>title</span></li>
+                            <li><span>extent</span> we don't use MODS child elements, see <a href="https://docs.google.com/document/d/1LpxtKNOYc7qZSJxRu8KJSJ6C_qi-DxP3dsankdmOxoA/edit">Extent Terminology</a> &amp; <a href="https://www.oclc.org/bibformats/en/3xx/347.html">MARC 347</a> for guidance</li>
                             <li><span>date</span></li>
                             <li><span>text</span></li>
                             <li>
-                                <span>wrapperOther</span>
+                                <span>wrapperOther</span> <i class="text-error">TODO: is this used? These look like local fields.</i>
                                 <ul>
                                     <li><span>tags</span></li>
                                     <li><span>flaggedFor</span></li>
@@ -483,55 +503,59 @@
                         </ul>
                     </li>
                     <li>
-                        <span>extension</span>
+                        <span>extension</span> not used, for ad hoc MODS extensions (we use <a href="#local">local</a>)
                         <ul>
-                            <li><span>tags</span></li>
+                            <li class="non-standard"><span>tags</span> not used, see local/tags</li>
                         </ul>
                     </li>
                     <li>
                         <span>recordInfo</span>
                         <ul>
                             <li>
-                                <span>recordContentSource</span>
+                                <span>recordContentSource</span> = <code>cc9</code>
                                 <ul>
-                                    <li class="attr"><span>@authority</span></li>
+                                    <li class="attr"><span>@authority</span> = <code>oclc</code></li>
                                 </ul>
                             </li>
                             <li>
-                                <span>recordCreationDate</span>
+                                <span>recordCreationDate</span> we don't use, but data is present in system-generated item data
                                 <ul>
-                                    <li class="attr"><span>@encoding</span></li>
+                                    <li class="attr">
+                                        <span>@encoding</span> = <code>w3cdtf</code>
+                                    </li>
                                 </ul>
                             </li>
                             <li>
-                                <span>recordChangeDate</span>
+                                <span>recordChangeDate</span> don't use, but present in system-generated item data
                             </li>
                             <li>
-                                <span>recordIdentifier</span>
+                                <span>recordIdentifier</span> filled in with item's UUID in Expert Scripting (<a href="https://github.com/cca/equella_scripts/blob/master/asc/static-fields.js">see example</a>)
                             </li>
                             <li>
-                                <span>recordOrigin</span>
+                                <span>recordOrigin</span> not used
                             </li>
                             <li>
                                 <span>languageOfCataloging</span>
                                 <ul>
                                     <li>
-                                        <span>languageTerm</span>
+                                        <span>languageTerm</span> = <code>eng</code>
                                         <ul>
-                                            <li class="attr"><span>@authority</span></li>
+                                            <li class="attr">
+                                                <span>@authority</span> = <code>iso639-2b</code>
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <span>descriptionStandard</span>
+                                <span>descriptionStandard</span> not used but should, <code>rda</code> is closest
                             </li>
                         </ul>
                     </li>
                 </ul>
             </li> <!-- /mods -->
 
-            <li>
+            <li id="local">
                 <span>local</span>
                 <ul>
                     <li>
@@ -549,12 +573,13 @@
                             <li><code>Interdisciplinary Studies</code></li>
                         </ul>
                     </li>
+                    <li><span>academicLevel</span></li>
                     <li>
                         <span>courseInfo</span>
                         <ul>
                             <li>
                                 <span>department</span>
-                                five-letter all-caps dept code, e.g. <code>PHOTO</code>
+                                five-letter all-caps department code, e.g. <code>PHOTO</code>
                             </li>
                             <li id="local-courseInfo-semester">
                                 <span>semester</span>
@@ -661,6 +686,8 @@
                             <li><span>submissionType</span></li>
                         </ul>
                     </li>
+                    <li><span>accreditation</span></li>
+                    <li><span>rating</span></li>
                     <li>
                         <span>juniorReviewWrapper</span>
                     </li>
