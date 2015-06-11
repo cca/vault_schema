@@ -27,7 +27,7 @@
                             <li class="attr"><span>@type</span></li>
                             <li>
                                 <span>title</span> <strong>required in every collection</strong> <ul>
-                                    <li>often scripted, combination of other metadata fields (<i class="text-error">TODO: link to example script</i>)</li>
+                                    <li>often scripted, combination of other metadata fields (<a href="https://github.com/cca/equella_scripts/blob/3c343629b6f254414cf7d454b16fe56afd425354/asc/divisions.js#L4-L11">see example script</a> from Syllabus Collection)</li>
                                     <li>only consistently used field under titleInfo</li>
                                 </ul>
                             </li>
@@ -221,11 +221,11 @@
                     <li>
                         <span>physicalDescription</span> MODS only has single <code>&lt;form&gt;</code> child
                         <ul>
-                            <li>
-                                <span class="non-standard">formBroad</span> uses AAT vocab, used across the board
+                            <li class="non-standard">
+                                <span>formBroad</span> uses AAT vocab, used across the board
                             </li>
-                            <li>
-                                <span class="non-standard">formSpecific</span> uses AAT vocab, only in Libraries
+                            <li class="non-standard">
+                                <span>formSpecific</span> uses AAT vocab, only in Libraries
                             </li>
                             <li>
                                 <span>internetMediaType</span> <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">MIME types</a>, only used in Libraries, can calculate by script
@@ -234,7 +234,7 @@
                                 <span>extent</span> see <a href="https://docs.google.com/document/d/1LpxtKNOYc7qZSJxRu8KJSJ6C_qi-DxP3dsankdmOxoA/edit">Extent Terminology</a> document, parallels MARC 300 in RDA
                             </li>
                             <li>
-                                <span>extentType</span>
+                                <span>extentType</span> <i class="text-error">TODO: what's this for? look for usage examples</i>
                             </li>
                             <li>
                                 <span>digitalOrigin</span> <a href="http://www.loc.gov/standards/mods/mods-outline-3-4.html#physicalDescription">MODS values</a> are
@@ -248,25 +248,31 @@
                         </ul>
                     </li>
                     <li>
-                        <span>physicalDescriptionNote</span>
+                        <span>physicalDescriptionNote</span> used in Libraries, was an early attempt to work with repeaters (so really should be a noteWrapper under physDesc above)
                         <ul>
                             <li>
-                                <span>note</span>
+                                <span>note</span> free-text
                                 <ul>
-                                    <li class="attr"><span>@type</span></li>
+                                    <li class="attr"><span>@type</span></li> see <a href="http://www.loc.gov/standards/mods/mods-notes.html">MODS</a> values (second table)
                                 </ul>
                             </li>
                         </ul>
                     </li>
-                    <li><span>abstract</span></li>
-                    <li><span>tableOfContents</span></li>
+                    <li>
+                        <span>abstract</span> mapped as the description for search results
+                    </li>
+                    <li>
+                        <span>tableOfContents</span> not used anywhere (<i class="text-error">TODO: confirm</i>)
+                    </li>
                     <li>
                         <span>noteWrapper</span>
                         <ul>
                             <li>
                                 <span>note</span>
                                 <ul>
-                                    <li class="attr"><span>@type</span></li>
+                                    <li class="attr">
+                                        <span>@type</span> see <a href="http://www.loc.gov/standards/mods/mods-notes.html">MODS</a> values (first table)
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -274,46 +280,85 @@
                     <li>
                         <span>subject</span>
                         <ul>
-                            <li><span>subjectType</span></li>
-                            <li><span>topic</span>
+                            <li class="non-standard">
+                                <span>subjectType</span> our addition
+                            </li>
+                            <li>
+                                <span>topic</span>
                                 <ul>
-                                    <li class="attr"><span>@authority</span></li>
+                                    <li class="attr">
+                                        <span>@authority</span>
+                                        <ul>
+                                            <li><code><a href="https://www.getty.edu/research/tools/vocabularies/aat/">AAT</a></code></li>
+                                            <li><code><a href="http://authorities.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&PAGE=First">LCSH</a></code></li>
+                                            <li><code>Local</code></li>
+                                            <li><code>None</code></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><span>topicCONA</span></li>
-                            <li><span>geographic</span>
+                            <li>
+                                <span>topicCONA</span> <a href="https://www.getty.edu/research/tools/vocabularies/cona/">a Getty authority</a>, used in Libraries only
+                            </li>
+                            <li>
+                                <span>geographic</span>
                                 <ul>
-                                    <li class="attr"><span>@authority</span></li>
+                                    <li class="attr"><span>@authority</span>
+                                        <ul>
+                                            <li><code>LCSH</code></li>
+                                            <li><code>Local</code></li>
+                                            <li><code>None</code></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><span>temporal</span>
+                            <li>
+                                <span>temporal</span> used in Libraries only, starts with time periods related to college location/name, transitions into decades later
                                 <ul>
-                                    <li class="attr"><span>@authority</span></li>
+                                    <li class="attr">
+                                        <span>@authority</span> not recorded, implicitly <code>local</code>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><span>name</span>
+                            <li>
+                                <span>name</span> we don't use MODS sub-elements, populated via "LIBRARIES - Subject Name" taxonomy
                                 <ul>
-                                    <li class="attr"><span>@authority</span></li>
-                                    <li class="attr"><span>@type</span></li>
+                                    <li class="attr">
+                                        <span>@authority</span>
+                                        <ul>
+                                            <li><code>local</code></li>
+                                            <li><code>Millennium</code></li>
+                                            <li><code>ulan</code> (<a href="https://www.getty.edu/vow/ULANSearchPage.jsp">Getty vocab</a>)</li>
+                                        </ul>
+                                    </li>
+                                    <li class="attr">
+                                        <span>@type</span>
+                                        <ul>
+                                            <li><code>personal</code></li>
+                                            <li><code>conference</code></li>
+                                            <li><code>corporate</code></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <span>classification</span>
+                        <span>classification</span> not used <i class="text-error">TODO: confirm</i>
                         <ul>
                             <li><span>classificationType</span></li>
                         </ul>
                     </li>
                     <li>
-                        <span>artstorClassification</span>
+                        <span>artstorClassification</span> list box in Libraries collection
                         <ul>
-                            <li class="attr"><span >@authority</span></li>
+                            <li class="attr"><span>@authority</span> value is <code>artstor</code>, set in expert scripting</li>
                         </ul>
                     </li>
-                    <li><span>photoClassification</span>
+                    <li>
+                        <span>photoClassification</span> list box in CCA\C Archives subset of Libraries
                         <ul>
-                            <li class="attr"><span>@authority</span></li>
+                            <li class="attr"><span>@authority</span> value is <code>local</code></li>
                         </ul>
                     </li>
                     <li>
@@ -325,7 +370,7 @@
                             <li><span>note</span></li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="non-standard">
                         <span>relateditem</span>
                         <ul>
                             <li class="attr"><span>@type</span></li>
