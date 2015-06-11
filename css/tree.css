@@ -51,21 +51,21 @@
     -o-transition: color .2s ease .1s, background-color .2s ease .1s, border-color .3s ease .2s;
     transition: color .2s ease .1s, background-color .2s ease .1s, border-color .3s ease .2s
 }
-.tree li.parent_li>span {
+.tree li.parent_li > span {
     cursor: pointer
 }
-.tree li.parent_li>span:hover {
+.tree li.parent_li > span:hover {
     background-color: #df8505;
     border: 1px solid #c67605;
     color: #fff
 }
-.tree li.parent_li>span:hover+ul li::after {
+.tree li.parent_li > span:hover ~ ul li::after {
     border-top-color: #f89406
 }
-.tree li.parent_li>span:hover+ul li::before {
+.tree li.parent_li > span:hover ~ ul li::before {
     border-left-color: #f89406
 }
-.tree li.parent_li>span:hover+ul li span {
+.tree li.parent_li > span:hover ~ ul li span {
     background: #fddfb3;
     border: 1px solid #faa937;
     color: #000
