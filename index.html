@@ -32,7 +32,7 @@
                                     <li><code>conference</code></li>
                                 </ul>
                             </li>
-                            <li>
+                            <li id="mods-titleinfo-title">
                                 <span>title</span> <strong>required in every collection</strong> <ul>
                                     <li>often scripted, combination of other metadata fields (<a href="https://github.com/cca/equella_scripts/blob/3c343629b6f254414cf7d454b16fe56afd425354/asc/divisions.js#L4-L11">see example script</a> from Syllabus Collection)</li>
                                     <li>only consistently used field under titleInfo</li>
@@ -51,8 +51,8 @@
                             <li class="attr"><span>@type</span></li>
                             <li><span>namePart</span> takes two different forms
                                 <ul>
-                                    <li><i>Surname, Givenname</i> for students</li>
-                                    <li><i>Givenname Surname</i> for faculty</li>
+                                    <li><code>Surname, Givenname</code> for students</li>
+                                    <li><code>Givenname Surname</code> for faculty</li>
                                 </ul>
                             </li>
                             <li><span>namePartDate</span> adhere to MODS</li>
@@ -278,7 +278,7 @@
                     <li>
                         <span>noteWrapper</span>
                         <ul>
-                            <li>
+                            <li id="mods-notewrapper-note">
                                 <span>note</span>
                                 <ul>
                                     <li class="attr">
@@ -378,11 +378,11 @@
                             <li class="attr">
                                 <span>@type</span> = <code>host</code>
                             </li>
-                            <li><span>title</span> see mods/titleInfo/title</li>
+                            <li><span>title</span> see <a href="#mods-titleinfo-title">mods/titleInfo/title</a></li>
                             <li>
                                 <span>location</span> URL of related item
                             </li>
-                            <li><span>note</span> see mods/noteWrapper/note</li>
+                            <li><span>note</span> see <a href="#mods-notewrapper-note">mods/noteWrapper/note</a></li>
                         </ul>
                     </li>
                     <li class="non-standard">
@@ -512,7 +512,7 @@
                     <li>
                         <span>extension</span> not used, for ad hoc MODS extensions (we use <a href="#local">local</a>)
                         <ul>
-                            <li class="non-standard"><span>tags</span> not used, see local/tags</li>
+                            <li class="non-standard"><span>tags</span> not used, see <a href="#local-tags">local/tags</a></li>
                         </ul>
                     </li>
                     <li>
@@ -774,6 +774,7 @@
                             <li><span>semester</span> uses Semesters taxonomy</li>
                         </ul>
                     </li>
+                    <li id="local-tags"><span>tags</span></li>
                 </ul>
             </li>
         </ul>
