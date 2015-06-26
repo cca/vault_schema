@@ -49,7 +49,7 @@
                             <li class="attr"><span>@authority</span> see <a href="http://www.loc.gov/standards/sourcelist/name-title.html">MODS values</a></li>
                             <li class="attr"><span>@usage</span></li>
                             <li class="attr"><span>@type</span></li>
-                            <li><span>namePart</span> takes two different forms
+                            <li id="mods-namepart"><span>namePart</span> takes two different forms
                                 <ul>
                                     <li><code>Surname, Givenname</code> for students</li>
                                     <li><code>Givenname Surname</code> for faculty</li>
@@ -70,14 +70,17 @@
                                     <li>
                                         <span>ccaAffiliated</span>
                                         must be <code>Yes</code> or <code>No</code>, sentence case
+                                        <ul>
+                                            <li class="text-error">is student ID number in the CORE Waiver Portfolio Review collection</li>
+                                        </ul>
                                     </li>
                                     <li>
-                                        <span>affiliation</span> technically should be a level higher at mods/namePart
+                                        <span class="non-standard">affiliation</span> related organization, technically should be a level higher at <a href="#mods-namepart">mods/name/namePart</a>
                                         <ul>
-                                            <li>in student work is the CCA ID number</li>
+                                            <li class="text-error" title="unable to confirm this anywhere -ep">should be CCA ID number in student work collections?</li>
                                             <li>in Libraries collection, it's the acronym of the college at the time</li>
-                                            <li><i class="text-error">TODO: what other types of values?</i></li>
-                                            <li><i class="text-error">TODO: are other collections using student ID in this field?</i></li>
+                                            <li>in Communications' Images, it's non-CCA organizations affiliated with the photographer</li>
+                                            <li>in Fashion Design, it's "Fashion partner" under the "Special projects" submission type</li>
                                         </ul>
                                     </li>
                                     <li>
