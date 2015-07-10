@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>local/viewLevel mapped to user roles</title>
+    <link rel="stylesheet" href="css/bootstrap-combined.min.css">
     <style>
     /* Mustache-style template tags */
     .tpl {
@@ -14,13 +15,19 @@
     .tpl::after {
         content: '}}'
     }
+
+    body {
+        font-size: 110%;
+        margin: 2em;
+    }
+    td:first-child {
+        padding-right: 1.5em;
+    }
     </style>
 </head>
 <body>
     <h1>local/viewLevel and how it maps to user roles</h1>
-    <h2>Notes</h2>
-    <p>For the purposes of viewLevel settings, the ACLs assigned are <b>Discover</b> and <b>View</b>.</p>
-    <p>Replace <span class="tpl">department</span> with the name of the collection's program, e.g. "Glass", and <span class="tpl">division</span> with the name of the program's division, e.g. "Fine Arts".</p>
+    <br>
     <table>
         <thead>
             <tr>
@@ -51,9 +58,16 @@
             </tr>
             <tr>
                 <td>public</td>
-                <td>everyone</td>
+                <td><em>everyone</em></td>
             </tr>
         </tbody>
     </table>
+
+    <br>
+    <h2>Notes</h2>
+
+    <p>For the purposes of viewLevel settings, the ACLs assigned are <b>Discover</b> and <b>View</b>.</p>
+
+    <p>Replace <span class="tpl">department</span> with the name of the collection's program, e.g. "Glass", and <span class="tpl">division</span> with the name of the program's division, e.g. "Fine Arts".</p>
 </body>
 </html>
