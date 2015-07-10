@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>local/viewLevel mapped to user roles</title>
+    <style>
+    /* Mustache-style template tags */
+    .tpl {
+        font-variant: small-caps;
+    }
+    .tpl::before {
+        content: '{{'
+    }
+    .tpl::after {
+        content: '}}'
+    }
+    </style>
+</head>
+<body>
+    <h1>local/viewLevel and how it maps to user roles</h1>
+    <h2>Notes</h2>
+    <p>For the purposes of viewLevel settings, the ACLs assigned are <b>Discover</b> and <b>View</b>.</p>
+    <p>Replace <span class="tpl">department</span> with the name of the collection's program, e.g. "Glass", and <span class="tpl">division</span> with the name of the program's division, e.g. "Fine Arts".</p>
+    <table>
+        <thead>
+            <tr>
+                <th>viewLevel value</th>
+                <th>user roles</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>for internal <span class="tpl">department</span> program use only</td>
+                <td><span class="tpl">department</span> Faculty Role, <span class="tpl">department</span> Administrator Role</td>
+            </tr>
+            <tr>
+                <td>for internal <span class="tpl">division</span> division use only</td>
+                <td>above plus <span class="tpl">division</span> Administrator Role</td>
+            </tr>
+            <tr>
+                <td>shared with other academic programs for assessment &amp; accreditation purposes only</td>
+                <td>Faculty Role</td>
+            </tr>
+            <tr>
+                <td>shared with college depts. and academic programs</td>
+                <td>Faculty Role &amp; Staff Role</td>
+            </tr>
+            <tr>
+                <td>shared with college depts., academic programs, and students</td>
+                <td>Faculty Role, Staff Role, &amp; Student Contributor Role</td>
+            </tr>
+            <tr>
+                <td>public</td>
+                <td>everyone</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
