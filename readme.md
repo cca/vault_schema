@@ -1,16 +1,12 @@
 # VAULT Metadata Schema
 
-Tree-like view of [VAULT](https://vault.cca.edu)'s (heavily modified) MODS metadata schema. Meant to keep track of what fields are used for, how they connect with controlled vocabularies (i.e. EQUELLA taxonomies), local eccentricities. Very much incomplete atm.
+Tree-like view of [VAULT](https://vault.cca.edu)'s (heavily modified) MODS metadata schema. Meant to keep track of what fields are used for, how they connect with controlled vocabularies (i.e. EQUELLA taxonomies), local eccentricities.
 
 ## Details
 
 Uses Bootstrap Tree: https://github.com/jhfrench/bootstrap-tree
 
-## Other options/ideas
-
-http://ludo.cubicphuse.nl/jquery-treetable/
-
-Filter search through nodes: http://wiki.aiwsolutions.net/2014/03/12/tree-list-filter-plugin/
+There's a script to sync the GitHub pages branch but I use a post-commit hook which is also included; copy post-commit.sh into .git/hooks/ to do the same.
 
 ## License
 
