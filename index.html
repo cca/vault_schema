@@ -22,14 +22,24 @@
                     <li>
                         <span>titleInfo</span>
                         <ul>
-                            <li class="attr"><span>@usage</span></li>
-                            <li class="attr"><span>@supplied</span></li>
+                            <li class="attr">
+                                <span>@usage</span>
+                                <ul>
+                                    <li><code>primary</code></li>
+                                    <li><code>secondary</code></li>
+                                </ul>
+                            </li>
+                            <li class="attr">
+                                <span>@supplied</span> must be <code>yes</code> or <code>no</code>
+                            </li>
                             <li class="attr">
                                 <span>@type</span>
                                 <ul>
-                                    <li><code>personal</code></li>
-                                    <li><code>corporate</code></li>
-                                    <li><code>conference</code></li>
+                                    <li><code>abbreviated</code></li>
+                                    <li><code>alternative</code></li>
+                                    <li><code>descriptive</code></li>
+                                    <li><code>transcribed</code></li>
+                                    <li><code>translated</code></li>
                                 </ul>
                             </li>
                             <li id="mods-titleinfo-title">
@@ -48,7 +58,24 @@
                         <ul>
                             <li class="attr"><span>@authority</span> see <a href="http://www.loc.gov/standards/sourcelist/name-title.html">MODS values</a></li>
                             <li class="attr"><span>@usage</span></li>
-                            <li class="attr"><span>@type</span></li>
+                            <li class="attr">
+                                <span>@type</span>
+                                <ul>
+                                    <li><code>personal</code></li>
+                                    <li><code>corporate</code></li>
+                                    <li><code>conference</code></li>
+                                </ul>
+                            </li>
+                            <li class="attr">
+                                <span>@authority</span>
+                                <ul>
+                                    <li><code>datatel</code></li>
+                                    <li><code>millennium</code></li>
+                                    <li><code title="Library of Congress">lc</code></li>
+                                    <li><code title="Union List of Artist Names">ulan</code></li>
+                                    <li><code>local</code></li>
+                                </ul>
+                            </li>
                             <li id="mods-namepart"><span>namePart</span> takes two different forms
                                 <ul>
                                     <li><code>Surname, Givenname</code> for students</li>
