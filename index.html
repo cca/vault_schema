@@ -654,9 +654,11 @@
                             </li>
                             <li>
                                 <span>courseCategory</span>
+                                various special groups of course like <code>Media History</code>, <code>ENGAGE</code>, FYP dimensions, various interdisciplinary categories
                             </li>
                             <li>
                                 <span>specialPrograms</span>
+                                <code>ecoTAP</code> seems to be the only value ever used, in Syllabus Collection
                             </li>
                             <li>
                                 <span>courseName</span>
@@ -664,14 +666,15 @@
                             </li>
                             <li>
                                 <span>courseLevel</span>
+                                e.g. 100, 200, but I don't know where this is used and it should be entirely derivative of the courseName above
                             </li>
                             <li>
                                 <span>XList</span>
-                                ID number of cross-listed course
+                                Currently, section code of cross-listed course. Previously, an ID number of cross-listed course.
                             </li>
                             <li>
                                 <span>secondXList</span>
-                                ID number of <i>another</i> cross-listed course
+                                ID number of <i>another</i> cross-listed course. Not used (hopefully)
                             </li>
                         </ul>
                     </li>
@@ -726,7 +729,10 @@
                             <li><span>submissionType</span></li>
                         </ul>
                     </li>
-                    <li><span>accreditation</span></li>
+                    <li>
+                        <span>accreditation</span>
+                        often used to store a human-readable phrase composed of the local/assessmentWrapper fields e.g. "Fall 2014 External Review Photography"
+                    </li>
                     <li><span>rating</span></li>
                     <li>
                         <span>juniorReviewWrapper</span>
@@ -754,6 +760,9 @@
                                 <span>date</span>
                                 generally a semester, e.g. <code>Fall 2014</code>
                             </li>
+                            <li>
+                                <span>staging</span>
+                                for storing the full taxonomy term, e.g. <code>Fall 2014\External Review\Photography</code></li>
                         </ul>
                     </li>
                     <li>
