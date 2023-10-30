@@ -56,7 +56,15 @@
                     <li>
                         <span>name</span>
                         <ul>
-                            <li class="attr"><span>@authority</span> see <a href="http://www.loc.gov/standards/sourcelist/name-title.html">MODS values</a></li>
+                            <li class="attr"><span>@authority</span> see <a href="http://www.loc.gov/standards/sourcelist/name-title.html">MODS values</a>
+                                <ul>
+                                    <li><code>datatel</code></li>
+                                    <li><code>millennium</code></li>
+                                    <li><code title="Library of Congress">lc</code></li>
+                                    <li><code title="Union List of Artist Names">ulan</code></li>
+                                    <li><code>local</code></li>
+                                </ul>
+                            </li>
                             <li class="attr"><span>@usage</span></li>
                             <li class="attr">
                                 <span>@type</span>
@@ -64,16 +72,6 @@
                                     <li><code>personal</code></li>
                                     <li><code>corporate</code></li>
                                     <li><code>conference</code></li>
-                                </ul>
-                            </li>
-                            <li class="attr">
-                                <span>@authority</span>
-                                <ul>
-                                    <li><code>datatel</code></li>
-                                    <li><code>millennium</code></li>
-                                    <li><code title="Library of Congress">lc</code></li>
-                                    <li><code title="Union List of Artist Names">ulan</code></li>
-                                    <li><code>local</code></li>
                                 </ul>
                             </li>
                             <li id="mods-namepart"><span>namePart</span> takes two different forms
@@ -87,7 +85,7 @@
                                 <ul>
                                     <li><span>roleTerm</span>
                                         <ul>
-                                            <li class="attr"><span>@type</span></li>
+                                            <li class="attr"><span>@type</span> "text" is only value</li>
                                         </ul>
                                     </li>
                                 </ul>
